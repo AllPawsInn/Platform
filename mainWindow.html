@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<tittle>Sample</tittle>
+</head>
+<body>
+	<h1>Dogs</h1>
+	<table id = "dogList">
+		<th> DogName </th>
+		<th> Breed </th>
+		<th> Owner </th>
+	</table>
+
+	<script>
+		const electron = require('electron');
+		const {ipcRenderer} = electron;
+
+		let tableHTML = document.getElementById('dogList').innerHTML;
+
+		// add Item
+		ipcRenderer.on('item:add', function(e, item){
+			const table = document.getElementById('dogList');
+			let row = table.insertRow()
+
+			item.forEach(function(element, idx){
+				let cell = row.insertCell(idx);	
+				cell.innerHTML = item[idx];
+			});
+
+		});
+
+		//clear Item
+		ipcRenderer.on('item:clear', function(){
+			let table = document.getElementById('dogList');
+			table.innerHTML = tableHTML;
+		});
+
+		//Remove Item
+		let table = document.getElementById('dogList');
+
+		table.addEventListener('dblclick', removeItem);
+
+		function removeItem(e){
+			e.target.parentNode.remove();
+		}
+
+	</script>
+</body>
+</html>
