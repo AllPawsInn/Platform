@@ -1,5 +1,7 @@
 # Build Commands
 
+  `npm install --save electron`
+  
 Dev Run 
 
   `npm start`
