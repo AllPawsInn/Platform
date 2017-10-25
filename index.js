@@ -28,7 +28,7 @@ app.on('ready', function(){
 	// Build menu from template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 
-	// Inser Menu
+	// Insert Menu
 	Menu.setApplicationMenu(mainMenu); // replaces former menu
 	// to do: get developer tools menu option back?
 
@@ -50,13 +50,13 @@ function createAddWindow(){
 		pathname: path.join(__dirname, 'addWindow.html'),
 		protocol: 'file:',
 		slashes : true
-	})); 
+	}));
 
 	//garbage collect
 	addWindow.on('close', function(){
 		addWindow = null;
 	});
-} 
+}
 
 
 //Catch added dogs
