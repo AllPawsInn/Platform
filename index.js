@@ -2,7 +2,7 @@ const electron = require('electron')
 const path = require ('path')
 const url = require('url')
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'development'; //change it to 'production' if not developing
 
 const{app, BrowserWindow, Menu, ipcMain} = electron //pull required objects from electron module
 
@@ -40,7 +40,7 @@ app.on('ready', function(){
 function createAddWindow(){
 
 	addWindow = new BrowserWindow({
-		width: 200,
+		width: 500,
 		height: 300,
 		title : 'Add Dog'
 	});
@@ -59,7 +59,7 @@ function createAddWindow(){
 }
 
 
-//Catch added dogs
+//Catch added dogs (sent from addWindow.html)
 ipcMain.on('item:add', function(e, item){
 	mainWindow.webContents.send('item:add', item);
 	addWindow.close();

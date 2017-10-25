@@ -2,19 +2,23 @@
 <html lang = "en">
 <head>
 	<tittle>Appointment</tittle>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 </head>
 <body>
-	<form>
-		<div>
-			<br>
-			DogName<input type = "text" id = "item" autofocus> 
-			Breed<input type = "text" id = "breed" > 
-			Owner<input type = "text" id = "owner" > 
-			<br>
-		</div>
-		<button type = "submit">Add Dog</button>	
-	</form>
-
+	<div class="container">
+		<form>
+			<div>
+				<br>
+				DogName<input type = "text" id = "item" autofocus>
+				Breed<input type = "text" id = "breed" >
+				Owner<input type = "text" id = "owner" >
+				<br>
+			</div>
+			<button class = "btn waves-effect waves-light" type = "submit">Add Dog</button>
+		</form>
+	</div>
 	<script>
 		const electron = require('electron');
 		const {ipcRenderer} = electron; //payload to mainwindow

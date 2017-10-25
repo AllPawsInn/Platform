@@ -2,9 +2,16 @@
 <html lang = "en">
 <head>
 	<tittle>Sample Booking Manager</tittle>
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 </head>
 <body>
-	<h1>Dogs</h1>
+	<nav>
+		<div class="nav-wrapper">
+			<a class="brand-logo center">Dog List</a>
+		</div>
+	</nav>
 	<table id = "dogList">
 		<th> Dog Name </th>
 		<th> Breed </th>
@@ -32,7 +39,7 @@
 		// Clear Table
 		ipcRenderer.on('item:clear', function(){
 			let table = document.getElementById('dogList');
-			table.innerHTML = tableHTML;
+			table.innerHTML = tableHTML; // tableHTML === 'empty'
 		});
 
 		// Remove Item
