@@ -7,6 +7,10 @@ Dev Run
   `npm start`
 
 
+Must Have
+
+  `npm install --save-dev electron-packager`
+
 Publish Version
 
   `npm run package-mac`
