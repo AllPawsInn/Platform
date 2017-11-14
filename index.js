@@ -38,16 +38,36 @@ app.on('ready', function(){
 
 //Handle create add window
 function createAddWindow(){
-
 	addWindow = new BrowserWindow({
 		width: 500,
 		height: 300,
-		title : 'Add Dog'
+		title : 'Add Item'
 	});
 
 	// Load html into window
 	addWindow.loadURL(url.format({
 		pathname: path.join(__dirname, 'addWindow.html'),
+		protocol: 'file:',
+		slashes : true
+	}));
+
+	//garbage collect
+	addWindow.on('close', function(){
+		addWindow = null;
+	});
+}
+
+function createSchedulerWindow(){
+
+	addWindow = new BrowserWindow({
+		width: 500,
+		height: 300,
+		title : 'Scheduler'
+	});
+
+	// Load html into window
+	addWindow.loadURL(url.format({
+		pathname: path.join(__dirname, 'TaskScheduler.html'),
 		protocol: 'file:',
 		slashes : true
 	}));
@@ -75,6 +95,12 @@ const mainMenuTemplate = [
 				label: 'Add Item',
 				click(){
 					createAddWindow();
+				}
+			},
+			{
+				label: 'Scheduler',
+				click(){
+					createSchedulerWindow();
 				}
 			},
 			{
