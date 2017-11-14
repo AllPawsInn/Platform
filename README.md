@@ -18,4 +18,8 @@ Publish Version
   `npm run package-win`
   
   `npm run package-linux`
+  
+Travis Builds
+
+  https://travis-ci.org/AllPawsInn/Platform
 
