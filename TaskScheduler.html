@@ -2,10 +2,10 @@
 <html lang = "en">
 <head>
 	<link rel="stylesheet" href="table.css">
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$('.modal').hide()
-	</script>
+	<script>if (window.module) module = window.module;</script>
+
 </head>
 <body>
 	<div class="wrapper">
@@ -721,6 +721,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 		$('.record').click(function(){
 			console.log("asdsaddsad")
@@ -729,6 +730,10 @@
 		$('.close').click(function(){
 			$('.modal').hide()
 		})
+	</script>
+
+	<script type="text/javascript">
+		$('.modal').hide()
 	</script>
 </body>
 </html>
