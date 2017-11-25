@@ -14,6 +14,11 @@ html, body {
   overflow: hidden;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .wrapper {
   margin: 0 auto;
   padding: 40px;
