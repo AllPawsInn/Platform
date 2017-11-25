@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="table.css">
 	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -8,6 +12,32 @@
 
 </head>
 <body>
+
+	<nav class="navbar navbar-default" style = "background: royalblue; ">
+		<div class="container-fluid" >
+			<div class="navbar-header">
+				<a class="navbar-brand" style = "color:#ffffff !important;" href="#">AllPawsInn</a>
+			</div>
+			<div class = "nav-style">
+				<ul class="nav navbar-nav">
+					<!-- wrap these around with a color div instead of hardcoding -->
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#" style = "color:#ffffff">New Booking</a></li>
+					<li><a href="#" style = "color:#ffffff">Print</a></li>
+					<li><a href="#" style = "color:#ffffff; margin-left: 1100px;">Functions</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class = "gonderdim text"><p> Feed Task Scheduler </p></div>
+
+	<div class = "gonderdim date">
+		<input type="date" name="dateofbirth" id="dateofbirth">
+	</div>
+	
+
 	<div class="wrapper">
 		<!-- The Modal -->
 		<div class="modal">
@@ -19,7 +49,8 @@
 		</div>
 
 		<div class="table">
-			<div class="row header">
+			<!-- seperate row header from the table for a stable header -->
+			<div class="row header"> 
 				<div class="cell small">
 					Kennel
 				</div>
