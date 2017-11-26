@@ -6,10 +6,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="table.css">
-	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script> 
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>if (window.module) module = window.module;</script>
-
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body>
 
@@ -23,6 +24,7 @@
 					<!-- wrap these around with a color div instead of hardcoding -->
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#" style = "color:#ffffff">New Booking</a></li>
+					<li id = "status"><a href="#" style = "color:#ffffff">Status</a></li>
 					<li><a href="#" style = "color:#ffffff">Print</a></li>
 					<li><a href="#" style = "color:#ffffff; margin-left: 1100px;">Functions</a></li>
 				</ul>
@@ -31,26 +33,63 @@
 	</nav>
 
 
+
 	<div class = "gonderdim text"><p> Feed Task Scheduler </p></div>
 
 	<div class = "gonderdim date">
 		<input type="date" name="dateofbirth" id="dateofbirth">
 	</div>
-	
+
+
 
 	<div class="wrapper">
 		<!-- The Modal -->
-		<div class="modal">
+		<div id = "details" class="modal">
 			<!-- Modal content -->
-			<div class="modal-content">
+			<div class="modal-content" style="width: 20%;">
 				<span class="close">&times;</span>
-				<p>Some text in the Modal..</p>
+				<h4><span class="label label-primary">Name</span>
+				</h4>
+				<h4>Samantha</h4>
+				<hr>
+				<h4><span class="label label-primary">Owner</span>
+				</h4>
+				<h4>Jack Daniels</h4>
+				<hr>
+				<h4><span class="label label-primary">Breed</span>
+				</h4>
+				<h4>Beagle</h4>
+				<hr>
+				<h4><span class="label label-primary">Item</span>
+				</h4>
+				<h4>Sciece Diet Puppy</h4>
+				<hr>
+				<h4><span class="label label-primary">Quantity</span>
+				</h4>
+				<h4>1 cup</h4>
+				<hr>
+				<h4><span class="label label-primary">Frequency</span>
+				</h4>
+				<h4>Twice Daily
+					<button style = "float: right;" type="button" class="btn">Edit</button>
+				</h4>
 			</div>
 		</div>
 
+		<!-- Status-->
+		<div id = "statusModal" class="modal">
+			<div class="modal-content">
+				<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto"></div>
+				<div class="modal-footer">
+					<button style = "float:right" type="button" class="btn btn-default" data-dismiss="modal" onclick="closeStatus()">Close</button>
+				</div>
+			</div>
+		</div>
+
+
 		<div class="table">
 			<!-- seperate row header from the table for a stable header -->
-			<div class="row header"> 
+			<div class="row header">
 				<div class="cell small">
 					Kennel
 				</div>
@@ -78,10 +117,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Science Diet Advanced Obje Orien
+					Sciece Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -98,10 +137,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -118,10 +157,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -138,10 +177,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -158,10 +197,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -178,10 +217,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -198,10 +237,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -218,10 +257,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -238,10 +277,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -258,10 +297,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -278,10 +317,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -298,10 +337,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -318,10 +357,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -338,10 +377,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -358,10 +397,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -378,10 +417,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -398,10 +437,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -418,10 +457,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -438,10 +477,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -458,10 +497,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -478,10 +517,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -498,10 +537,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -518,10 +557,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -538,10 +577,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -558,10 +597,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -578,10 +617,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -598,10 +637,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -618,10 +657,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -638,10 +677,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -658,10 +697,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -678,10 +717,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -698,10 +737,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -718,10 +757,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -738,10 +777,10 @@
 					Dog
 				</div>
 				<div class="cell medium">
-					DARBY ROSE
+					Samantha
 				</div>
 				<div class="cell">
-					Purinasjkdksjadjasnjhsdajadsjdsakj
+					Science Diet Puppy
 				</div>
 				<div class="cell medium">
 					1 cup
@@ -752,19 +791,74 @@
 			</div>
 		</div>
 	</div>
-	
 	<script type="text/javascript">
 		$('.record').click(function(){
-			console.log("asdsaddsad")
-			$('.modal').show()
+			$('#details').show()
 		})
 		$('.close').click(function(){
-			$('.modal').hide()
+			$('#details').hide()
 		})
-	</script>
-
-	<script type="text/javascript">
-		$('.modal').hide()
+		function closeStatus(){
+			$('#statusModal').hide()
+		}
+		Highcharts.chart('container', {
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				type: 'pie'
+			},
+			title: {
+				text: 'Kennel Status, November 25, 2015'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+				name: 'Kennels',
+				colorByPoint: true,
+				data: [{
+					name: 'Checked-in',
+					y: 40,
+					sliced: true,
+					selected: true,
+					color: '#FF570A'
+				}, {
+					name: 'Checked-out',
+					y: 20,
+					color: '#76B041'
+				}, {
+					name: 'Not checked-in',
+					y: 20,
+					color: '#A30000'
+				}, {
+					name: 'Not checked-out',
+					y: 10,
+					color: '#FFC914'
+				}, {
+					name: 'Empty',
+					y: 10,
+					color: '#4169e1'
+				}]
+			}]
+		});
+		$('#statusModal').hide()
+		$('#status').click(function(){
+			$('#statusModal').show()
+		})
 	</script>
 </body>
 </html>
