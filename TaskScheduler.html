@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="navbar.css">
 	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>if (window.module) module = window.module;</script>
@@ -13,23 +14,48 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default" style = "background: royalblue; ">
-		<div class="container-fluid" >
-			<div class="navbar-header">
-				<a class="navbar-brand" style = "color:#ffffff !important;" href="#">AllPawsInn</a>
-			</div>
-			<div class = "nav-style">
-				<ul class="nav navbar-nav">
-					<!-- wrap these around with a color div instead of hardcoding -->
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#" style = "color:#ffffff">New Booking</a></li>
-					<li><a href="#" style = "color:#ffffff">Print</a></li>
-					<li><a href="#" style = "color:#ffffff; margin-left: 1100px;">Functions</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">AllPawsInn</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+         <li><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New Booking <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> New Dog</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Client</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+        </li>
+      <li><a href="#">Print</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Functions<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.google.ch" target="_blank">My Webmail</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://www.google.ch" target="_blank">Timelogger</a></li>
+            <li><a href="http://www.cubetech.ch" target="_blank">cubetech.ch</a></li>
+         </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 	<div class = "gonderdim text"><p> Feed Task Scheduler </p></div>
 
