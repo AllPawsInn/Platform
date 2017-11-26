@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../assets/css/table.css">
+	<link rel="stylesheet" href="../assets/css/navbar.css">
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>if (window.module) module = window.module;</script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">AllPawsInn</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New Booking <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> New Dog</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Client</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Categories</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Print</a></li>
+					<li id = "status"><a href="#">Status</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Functions<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="http://www.google.ch" target="_blank">My Webmail</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="http://www.google.ch" target="_blank">Timelogger</a></li>
+							<li><a href="http://www.cubetech.ch" target="_blank">cubetech.ch</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+
+	
+
+
+
+	<div class="wrapper">
+		<!-- Title & Date Picker -->
+		<div class = "text"><p> Feed Task Scheduler </p></div>
+		<div class = "date">
+			<input type="date" name="dateofbirth" id="dateofbirth">
+		</div>
+		<!-- The Modal -->
+		<div id = "details" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content" style="width: 20%;">
+				<span class="close">&times;</span>
+				<h4><span class="label label-primary">Name</span>
+				</h4>
+				<h4>Samantha</h4>
+				<hr>
+				<h4><span class="label label-primary">Owner</span>
+				</h4>
+				<h4>Jack Daniels</h4>
+				<hr>
+				<h4><span class="label label-primary">Breed</span>
+				</h4>
+				<h4>Beagle</h4>
+				<hr>
+				<h4><span class="label label-primary">Item</span>
+				</h4>
+				<h4>Sciece Diet Puppy</h4>
+				<hr>
+				<h4><span class="label label-primary">Quantity</span>
+				</h4>
+				<h4>1 cup</h4>
+				<hr>
+				<h4><span class="label label-primary">Frequency</span>
+				</h4>
+				<h4>Twice Daily
+					<button style = "float: right;" type="button" class="btn">Edit</button>
+				</h4>
+			</div>
+		</div>
+
+		<!-- Status-->
+		<div id = "statusModal" class="modal">
+			<div class="modal-content">
+				<div id="container" style="min-width: 310px; height: 400px; max-width: 100%; margin: 0 auto"></div>
+				<div class="modal-footer">
+					<button style = "float:right" type="button" class="btn btn-default" data-dismiss="modal" onclick="closeStatus()">Close</button>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="table">
+			<!-- seperate row header from the table for a stable header -->
+			<div class="row header">
+				<div class="cell small">
+					Kennel
+				</div>
+				<div class="cell small">
+					Type
+				</div>
+				<div class="cell medium">
+					Name
+				</div>
+				<div class="cell">
+					Item
+				</div>
+				<div class="cell medium">
+					Quantity
+				</div>
+				<div class="cell medium">
+					Frequency
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Sciece Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+			<div class="row record">
+				<div class="cell small">
+					1
+				</div>
+				<div class="cell small">
+					Dog
+				</div>
+				<div class="cell medium">
+					Samantha
+				</div>
+				<div class="cell">
+					Science Diet Puppy
+				</div>
+				<div class="cell medium">
+					1 cup
+				</div>
+				<div class="cell medium">
+					Twice Daily
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.record').click(function(){
+			$('#details').show()
+		})
+		$('.close').click(function(){
+			$('#details').hide()
+		})
+		function closeStatus(){
+			$('#statusModal').hide()
+		}
+		Highcharts.chart('container', {
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				type: 'pie'
+			},
+			title: {
+				text: 'Kennel Status, November 25, 2015'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+				name: 'Kennels',
+				colorByPoint: true,
+				data: [{
+					name: 'Checked-in',
+					y: 40,
+					sliced: true,
+					selected: true,
+					color: '#FF570A'
+				}, {
+					name: 'Checked-out',
+					y: 20,
+					color: '#76B041'
+				}, {
+					name: 'Not checked-in',
+					y: 20,
+					color: '#A30000'
+				}, {
+					name: 'Not checked-out',
+					y: 10,
+					color: '#FFC914'
+				}, {
+					name: 'Empty',
+					y: 10,
+					color: '#4169e1'
+				}]
+			}]
+		});
+		$('#statusModal').hide()
+		$('#status').click(function(){
+			$('#statusModal').show()
+		})
+	</script>
+</body>
+</html>

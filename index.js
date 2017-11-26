@@ -15,7 +15,7 @@ app.on('ready', function(){
 	mainWindow = new BrowserWindow({});
 	// Load html into window
 	mainWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'mainWindow.html'),
+		pathname: path.join(__dirname, 'app/mainWindow.html'),
 		protocol: 'file:',
 		slashes : true
 	})); // above block is equivelant to file://dirname/mainWindow.html
@@ -46,7 +46,7 @@ function createAddWindow(){
 
 	// Load html into window
 	addWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'addWindow.html'),
+		pathname: path.join(__dirname, 'app/addWindow.html'),
 		protocol: 'file:',
 		slashes : true
 	}));
@@ -67,7 +67,7 @@ function createSchedulerWindow(){
 
 	// Load html into window
 	addWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'TaskScheduler.html'),
+		pathname: path.join(__dirname, 'app/taskScheduler.html'),
 		protocol: 'file:',
 		slashes : true
 	}));
