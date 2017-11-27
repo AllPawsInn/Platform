@@ -12,7 +12,10 @@ let addWindow;
 //Listen for app to be ready
 app.on('ready', function(){
 	//Create new Window
-	mainWindow = new BrowserWindow({});
+	mainWindow = new BrowserWindow({
+		frame : false,
+		fullscreen : true
+	});
 	// Load html into window
 	mainWindow.loadURL(url.format({
 		pathname: path.join(__dirname, 'app/mainWindow.html'),
@@ -57,28 +60,6 @@ function createAddWindow(){
 	});
 }
 
-function createSchedulerWindow(){
-
-	addWindow = new BrowserWindow({
-		width: 500,
-		height: 300,
-		title : 'Scheduler'
-	});
-
-	// Load html into window
-	addWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'app/taskScheduler.html'),
-		protocol: 'file:',
-		slashes : true
-	}));
-
-	//garbage collect
-	addWindow.on('close', function(){
-		addWindow = null;
-	});
-}
-
-
 //Catch added dogs (sent from addWindow.html)
 ipcMain.on('item:add', function(e, item){
 	mainWindow.webContents.send('item:add', item);
@@ -95,12 +76,6 @@ const mainMenuTemplate = [
 				label: 'Add Item',
 				click(){
 					createAddWindow();
-				}
-			},
-			{
-				label: 'Scheduler',
-				click(){
-					createSchedulerWindow();
 				}
 			},
 			{
