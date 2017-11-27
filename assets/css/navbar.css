@@ -5,7 +5,7 @@
   font-size: 1.15em;
   font-weight: 400;
   background-color: royalblue;
-  
+
   border: 0px;
   border-radius: 0px;
     height: 0px;
@@ -79,7 +79,7 @@
     color: #ffffff;
 }
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
   .dropdown-menu>li>a {
     background-color: #006b96;
     color: #ffffff;
@@ -87,12 +87,12 @@
   .dropdown-menu>li>a:hover {
     color: #ffffff;
   }
-  
+
   .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
     color: #ffffff;
     background-color: transparent;
   }
-  
+
   .dropdown-menu .divider {
     height: 1px;
     margin: 9px 0;
