@@ -1,6 +1,6 @@
 body {
   font-family: 'Lato', serif;  
-  font-size: 10px;
+  font-size: 12px;
   line-height: 20px;
   font-weight: 400;
   color: #3b3b3b;
@@ -22,7 +22,7 @@ html, body {
 .wrapper {
   margin: 0 auto;
   padding: 40px;
-  max-width: 800px;
+  max-width: 1000px;
   /*wider width??*/
 }
 
@@ -71,7 +71,7 @@ html, body {
 }
 
 .cell {
-  padding: 1px 12px;
+  padding: 1px 24px;
   display: table-cell;
 }
 
