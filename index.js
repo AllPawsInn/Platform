@@ -45,14 +45,14 @@ app.on('ready', function(){
 	}
 
 
-	// insert => "INSERT INTO dbo.Colours (ColourName) VALUES ('Company')"
-	// delete => "DELETE FROM dbo.Colours WHERE ID = 16"
-	// select => "SELECT * FROM dbo.Colours"
+	// insert => "INSERT INTO dbo.Colours (ColourName) VALUES ('Blue')"
+	// delete => "DELETE FROM dbo.Animals WHERE ID = 16"
+	// select => "SELECT * FROM dbo.Animals"
   async function sqlTester() {
 	    console.log("sql connecting......")
 	    let pool = await sql.connect(sqlConfig)
 	    let result = await pool.request()
-	       .query("DELETE FROM dbo.Colours WHERE ID = 16"
+	       .query("DELETE FROM dbo.Colours WHERE ID = 16")
 
 	    console.log(result)
   }
