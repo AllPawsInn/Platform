@@ -1,6 +1,8 @@
 const electron = require('electron')
 const path = require ('path')
 const url = require('url')
+const sql = require('mssql');
+
 
 process.env.NODE_ENV = 'development'; //change it to 'production' if not developing
 
@@ -35,8 +37,29 @@ app.on('ready', function(){
 	Menu.setApplicationMenu(mainMenu); // replaces former menu
 	// to do: get developer tools menu option back?
 
+	let sqlConfig = {
+		user: 'sa', // your mssql account
+		password: 'asdqwe123',
+		server: 'DESKTOP-9BJOBVM\\SQLEXPRESS', // your server name
+		database: 'KMDB'
+	}
+
+
+	// insert => "INSERT INTO dbo.Colours (ColourName) VALUES ('Blue')"
+	// delete => "DELETE FROM dbo.Animals WHERE ID = 16"
+	// select => "SELECT * FROM dbo.Animals"
+  async function sqlTester() {
+	    console.log("sql connecting......")
+	    let pool = await sql.connect(sqlConfig)
+	    let result = await pool.request()
+	       .query("DELETE FROM dbo.Colours WHERE ID = 16")
+
+	    console.log(result)
+  }
+ sqlTester();
 
 });
+
 
 
 //Handle create add window
@@ -69,18 +92,18 @@ ipcMain.on('item:add', function(e, item){
 
 // ---------------------- Create Menu --------------------
 const mainMenuTemplate = [
+{
+	label: 'File',
+	submenu:[
 	{
-		label: 'File',
-		submenu:[
-			{
-				label: 'Add Item',
-				click(){
-					createAddWindow();
-				}
-			},
-			{
-				label: 'Clear Items',
-				click(){
+		label: 'Add Item',
+		click(){
+			createAddWindow();
+		}
+	},
+	{
+		label: 'Clear Items',
+		click(){
 					mainWindow.webContents.send('item:clear') //no item sent
 				}
 			},
@@ -93,9 +116,9 @@ const mainMenuTemplate = [
 					app.quit();
 				}
 			}
-		]
-	}
-];
+			]
+		}
+		];
 
 //if mac
 if(process.platform == 'darwin'){
@@ -107,9 +130,9 @@ if(process.env.NODE_ENV !== 'production'){
 	mainMenuTemplate.push({
 		label: 'Developer Tools',
 		submenu:[
-			{
-				label: 'Toggle DevTools',
-				accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+Shift+I',
+		{
+			label: 'Toggle DevTools',
+			accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+Shift+I',
 				click(item, focusedWindow){ //focus on the currentwindow
 					focusedWindow.toggleDevTools();
 				}
@@ -117,6 +140,6 @@ if(process.env.NODE_ENV !== 'production'){
 			{
 				role: 'reload'
 			}
-		]
-	})
+			]
+		})
 }
